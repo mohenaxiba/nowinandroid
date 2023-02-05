@@ -22,8 +22,11 @@ GIT_ROOT=$(git rev-parse --show-toplevel 2> /dev/null)
 
 echo "Installing git commit-message hook"
 echo
-curl -sSLo "${GIT_DIR}/hooks/commit-msg" \
-    "https://gerrit-review.googlesource.com/tools/hooks/commit-msg" \
+#curl -sSLo "${GIT_DIR}/hooks/commit-msg" \
+#    "https://gerrit-review.googlesource.com/tools/hooks/commit-msg" \
+#  && chmod +x "${GIT_DIR}/hooks/commit-msg"
+
+cp "${GIT_ROOT}/tools/commit-msg" "${GIT_DIR}/hooks/commit-msg" \
   && chmod +x "${GIT_DIR}/hooks/commit-msg"
 
 echo "Installing git pre-push hook"
